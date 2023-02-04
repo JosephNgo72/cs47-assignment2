@@ -4,6 +4,7 @@ import {
   Image,
   StyleSheet,
   Dimensions,
+  PixelRatio,
   Platform,
 } from "react-native";
 import Icons from "../../assets/Icons";
@@ -25,21 +26,22 @@ const Header = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
     marginTop: windowHeight * 0.06,
     paddingTop: 10,
     paddingHorizontal: 10,
   },
   headerIcons: {
     height: Platform.OS === "ios" ? 54 : 41,
-
     width: windowWidth * 0.1,
     aspectRatio: 1 / 1,
+    resizeMode: "contain",
   },
   title: {
     fontFamily: "Sydney-Bold",
-    fontSize: 32,
+    fontSize: PixelRatio.getFontScale() * windowHeight * 0.05,
     color: Themes.light.text,
   },
 });
